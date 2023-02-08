@@ -10,7 +10,7 @@ app.set('port', process.env.PORT || 3000);
 
 // Middleware
 app.use(morgan('dev'));
-app.use(cors());
+app.use(cors().header("Access-Control-Allow-Origin", "http://localhost:4200"));
 app.use(express.json());
 
 // Routes

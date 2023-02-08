@@ -37,7 +37,6 @@ serieCtrl.getSerieName = async (req, res) => {
 
 }
 
-// TODO -------------
 serieCtrl.getSeriesGenre = async (req, res) => {
     const series = await Serie.find({ "genres.name" : req.params.genre})
         .then((data) => {
@@ -70,8 +69,9 @@ serieCtrl.deleteSerie = async (req, res) => {
         })
         .catch(err => res.send(err.message));
 }
+
 serieCtrl.getGenres = async (req, res) => {
-    await Serie.find().distinct('genres')
+    await Serie.find().distinct("genres")
         .then((data) => res.json(data))
         .catch((err) => console.error(err))
 }
